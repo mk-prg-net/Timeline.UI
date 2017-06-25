@@ -1,5 +1,5 @@
 ﻿@model  mko.Timeline.ITime
-
+@using System.Numerics
 @*
     (c)  Martin Korneffel, Stuttgart 2017
     Darstellung einer Uhrzeit durch eine Uhrengrafik mittels SVG
@@ -7,38 +7,48 @@
 
 @{
 
+    const float Diameter = 70.0f;
+    var cg = new Timeline.UI.ClockGraph(new Vector2(1.05f * Diameter / 2, 1.05f * Diameter / 2), Diameter);
 
-
-
-
-    var SecXY = Timeline.UI.Web.Models.Clock.ClockGraph.TimePointerTipXY(100.0, Model.Second);
-    var MinXY = Timeline.UI.Web.Models.Clock.ClockGraph.TimePointerTipXY(90.0, Model.Minute);
-    var horXY = Timeline.UI.Web.Models.Clock.ClockGraph.TimePointerTipXY(60.0, Model.Hour > 12.0 ? (Model.Hour - 12.0) * 5.0 : Model.Hour * 5.0);
+    var Sec = cg.SetTimePointer60(Model.Second, cg.SecoundHand);
+    var Min = cg.SetTimePointer60(Model.Minute, cg.MinuteHand);
+    var Hor = cg.SetTimePointer60(cg.HourHandPos60(Model.Hour, Model.Minute), cg.HourHand);
 
     var cultBackup = System.Threading.Thread.CurrentThread.CurrentCulture;
     System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
 
 }
-<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220">
+@*
+    Ziffernblatt darstellen als SVG- Vektorgrafik
+*@
+<svg xmlns="http://www.w3.org/2000/svg" width="@(cg.Radius*2.1f) " height="@(cg.Radius*2.1f)">
     <g>
-        <circle id="circle" style="stroke: black; fill: #f8f8f8;" cx="100" cy="100" r="100"></circle>
-        <line id="hour0" x1="100" y1="10" x2="100" y2="0" style="stroke: black; fill: #f8f8f8;"></line>
-        <line id="hour1" x1="145" y1="22.05771365940052" x2="150" y2="13.397459621556123" style="stroke: black; fill: #f8f8f8;"></line>
-        <line id="hour2" x1="177.94228634059948" y1="55" x2="186.60254037844385" y2="50" style="stroke: black; fill: #f8f8f8;"></line>
-        <line id="hour3" x1="190" y1="100" x2="200" y2="100" style="stroke: black; fill: #f8f8f8;"></line>
-        <line id="hour4" x1="177.94228634059948" y1="145" x2="186.60254037844388" y2="150" style="stroke: black; fill: #f8f8f8;"></line>
-        <line id="hour5" x1="145" y1="177.94228634059948" x2="150" y2="186.60254037844388" style="stroke: black; fill: #f8f8f8;"></line>
-        <line id="hour6" x1="100" y1="190" x2="100" y2="200" style="stroke: black; fill: #f8f8f8;"></line>
-        <line id="hour7" x1="54.99999999999998" y1="177.94228634059948" x2="49.99999999999998" y2="186.60254037844385" style="stroke: black; fill: #f8f8f8;"></line>
-        <line id="hour8" x1="22.057713659400534" y1="145.00000000000003" x2="13.397459621556152" y2="150.00000000000003" style="stroke: black; fill: #f8f8f8;"></line>
-        <line id="hour9" x1="10" y1="100.00000000000001" x2="0" y2="100.00000000000001" style="stroke: black; fill: #f8f8f8;"></line>
-        <line id="hour10" x1="22.05771365940052" y1="54.99999999999999" x2="13.397459621556138" y2="49.999999999999986" style="stroke: black; fill: #f8f8f8;"></line>
-        <line id="hour11" x1="54.99999999999996" y1="22.057713659400534" x2="49.99999999999996" y2="13.397459621556152" style="stroke: black; fill: #f8f8f8;"></line>
+        <circle id="circle" style="stroke: black; fill: #f8f8f8;" cx="@cg.CenterPoint.X" cy="@cg.CenterPoint.Y" r="@cg.Radius"></circle>
+        @for (int i = 0; i < 60; i += 5)
+        {
+            // 60-er Skalenteilung erzeugen
+            var scgt = cg.SetTimePointer60(i, cg.ScaleGraduation);
+            var beg = scgt.First();
+            var end = scgt.Skip(1).First();
+
+            <line id="hour@(i/5)" x1="@beg.X" y1="@beg.Y" x2="@end.X" y2="@end.Y" style="stroke: black; fill: #f8f8f8;"></line>
+        }
     </g>
     <g>
-        <line x1="100" y1="100" x2="@horXY.Item1" y2="@horXY.Item2" style="stroke-width: 6px; stroke: green;" id="hourhand"></line>
-        <line x1="100" y1="100" x2="@MinXY.Item1" y2="@MinXY.Item2" style="stroke-width: 4px; stroke: blue;" id="minutehand"></line>
-        <line x1="100" y1="100" x2="@SecXY.Item1" y2="@SecXY.Item2" style="stroke-width: 2px; stroke: red;" id="secondhand"></line>
+        @{
+            // Zeiger darstellen
+            var begHor = Hor.First();
+            var endHor = Hor.Last();
+
+            var begSec = Sec.First();
+            var endSec = Sec.Last();
+
+            var begMin = Min.First();
+            var endMin = Min.Last();
+        }
+        <line x1="@begHor.X" y1="@begHor.Y" x2="@endHor.X" y2="@endHor.Y" style="stroke-width: 6px; stroke: green;" id="hourhand"></line>
+        <line x1="@begMin.X" y1="@begMin.Y" x2="@endMin.X" y2="@endMin.Y" style="stroke-width: 4px; stroke: red;" id="minutehand"></line>
+        @*<line x1="@begSec.X" y1="@begSec.Y" x2="@endSec.X" y2="@endSec.Y" style="stroke-width: 2px; stroke: red;" id="secondhand"></line>*@
     </g>
 </svg>
 

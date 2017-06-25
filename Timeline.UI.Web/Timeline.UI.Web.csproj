@@ -452,7 +452,12 @@
     <Content Include="Views\Appointment\Create.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Timeline.UI\Timeline.UI.csproj">
+      <Project>{78b816f8-a583-44fe-a353-919740d33011}</Project>
+      <Name>Timeline.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

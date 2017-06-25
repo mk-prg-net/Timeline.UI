@@ -53,12 +53,102 @@ namespace Timeline.UI
             HourHand
         }
 
+        /// <summary>
+        /// Mittelpunkt des Ziffernblattes in Bezug zur linken, oberen Bildecke
+        /// </summary>
+        public Vector2 CenterPoint
+        {
+            get;
+        }      
+          
+        /// <summary>
+        /// Durchmesser des Ziffernblattes
+        /// </summary>
+        public float Radius
+        {
+            get;
+        }
 
-        Vector2 CenterPoint;
-
-        public ClockGraph(Vector2 centerPoint)
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
+        /// <param name="centerPoint"></param>
+        /// <param name="diameter"></param>
+        public ClockGraph(Vector2 centerPoint, float diameter)
         {
             CenterPoint = centerPoint;
+            Radius = diameter / 2.0f;
+
+            var PointerLenght = Radius * 0.95f;
+            
+
+            SecoundHand = new Vector2[] {
+                new Vector2(),
+                new Vector2(1.0f * PointerLenght, 0)
+            };
+
+            MinuteHand = new Vector2[] {
+                new Vector2(),
+                new Vector2(0.8f * PointerLenght, 0)
+            };
+
+
+            HourHand = new Vector2[] {
+                new Vector2(),
+                new Vector2(0.6f * PointerLenght, 0)
+            };
+
+
+            ScaleGraduation = new Vector2[] {
+                new Vector2(PointerLenght, 0),
+                new Vector2(Radius, 0)
+            };
+        }
+
+        /// <summary>
+        /// Silhouette des Sekundenzeigers
+        /// </summary>
+        public IEnumerable<Vector2> SecoundHand
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Silhouette des Strundenzeigers
+        /// </summary>
+        public IEnumerable<Vector2> HourHand
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Berechnet die Position des Stundenzeigers auf einem 60 Minuten Kreis
+        /// für eine gegeben Uhrzeit
+        /// </summary>
+        /// <param name="Hour"></param>
+        /// <param name="Minutes"></param>        
+        /// <returns></returns>
+        public int HourHandPos60(int Hour, int Minutes)
+        {
+            int pos = Hour > 12 ? (Hour - 12) * 5 : Hour * 5;
+            return pos + Minutes/12 ;
+
+        }
+
+        /// <summary>
+        /// Silhouette des Minutenzeigers
+        /// </summary>
+        public IEnumerable<Vector2> MinuteHand
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Silhouette einer Skalenteilung
+        /// </summary>
+        public IEnumerable<Vector2> ScaleGraduation
+        {
+            get;
         }
 
         /// <summary>
@@ -88,7 +178,9 @@ namespace Timeline.UI
 
 
             // Koordinatentransformation als Produkt aus einer Dreh- und einer Verscheibematrix
-            var mat = Matrix3x2.Multiply(Matrix3x2.CreateRotation(Rad), Matrix3x2.CreateTranslation(CenterPoint));
+            // Eine Spiegelung an der x- Achse wurde eingebaut, da die y- Achsen der  Koordinatensysteme im 
+            // Computer nach unten zeigen, und damit entgegen der Mathematik, in der sie nach oben zeigen.
+            var mat = Matrix3x2.Multiply(Matrix3x2.Multiply(Matrix3x2.CreateRotation(Rad), Matrix3x2.CreateScale(1.0f, -1.0f)), Matrix3x2.CreateTranslation(CenterPoint));
 
             List<Vector2> transformed = new List<Vector2>(TimePointerShape.Count());
 
@@ -99,5 +191,10 @@ namespace Timeline.UI
 
             return transformed.ToArray();
         }
+
+
+
+
+
     }
 }
