@@ -1,0 +1,33 @@
+{
+  "BeginDate": {
+    "Day": 25,
+    "Month": 6,
+    "Year": 2017
+  },
+  "BeginTime": {
+    "Hour": 15,
+    "Minute": 15,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Category": 1,
+  "Details": "test",
+  "EndDate": {
+    "Day": 25,
+    "Month": 6,
+    "Year": 2017
+  },
+  "EndTime": {
+    "Hour": 17,
+    "Minute": 30,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Location": {
+    "Street": "",
+    "City": "",
+    "Country": "DE",
+    "PostalCode": ""
+  },
+  "Owner": "ich"
+}
