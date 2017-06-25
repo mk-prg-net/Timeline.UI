@@ -1,0 +1,33 @@
+{
+  "BeginDate": {
+    "Day": 24,
+    "Month": 12,
+    "Year": 2027
+  },
+  "BeginTime": {
+    "Hour": 0,
+    "Minute": 0,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Category": 0,
+  "Details": "Weihnachten, Geschenke",
+  "EndDate": {
+    "Day": 24,
+    "Month": 12,
+    "Year": 2027
+  },
+  "EndTime": {
+    "Hour": 23,
+    "Minute": 59,
+    "Second": 59,
+    "Millisecond": 0
+  },
+  "Location": {
+    "Street": "",
+    "City": "",
+    "Country": "DE",
+    "PostalCode": ""
+  },
+  "Owner": "alle"
+}

@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{692EC89C-B7B9-4ACF-8F65-93B44DDF3B0B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Timeline.UI.Web</RootNamespace>
+    <AssemblyName>Timeline.UI.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="mko, Version=7.3.3.0, Culture=neutral, PublicKeyToken=f4d93f46e53e0656, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.7.3.3\lib\net45\mko.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mko.Algo, Version=1.2.2.0, Culture=neutral, PublicKeyToken=f4d93f46e53e0656, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.Algo.1.2.2\lib\net45\mko.Algo.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mko.BI, Version=3.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.BI.3.2.6\lib\net45\mko.BI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mko.Timeline, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.Timeline.1.0.1\lib\net452\mko.Timeline.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mko.Timeline.FS, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.Timeline.FS.1.0.1\lib\net452\mko.Timeline.FS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Clock\ClockGraph.cs" />
+    <Compile Include="Models\Clock\ClockGraphVector.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Timeline\Appointment.cs" />
+    <Compile Include="Models\Timeline\Date.cs" />
+    <Compile Include="Models\Timeline\Time.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Appointment.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mk-prg-net.glyphs.css" />
+    <Content Include="Content\mk-prg-net.lists.css" />
+    <Content Include="Content\mk-prg-net.tree.css" />
+    <Content Include="Content\pics\Calculator-Symbol.png" />
+    <Content Include="Content\pics\Calculator-Symbol.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\admin-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\admin-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\architect-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\architect-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-1-active-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-1-active-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-1-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-1-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-2-active-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-2-active-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-2-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-2-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-3-active-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-3-active-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-3-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\col-3-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\consulting-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\consulting-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\crypto-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\crypto-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\cuby-bad.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\cuby-bad.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\cuby-happy.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\cuby-happy.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\cuby-unknown.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\cuby-unknown.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\cuby.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\cuby.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\darr-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\darr-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\db-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\db-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\decorator-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\decorator-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\di-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\di-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\domain-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\domain-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\ef6-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\ef6-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\gui-pattern-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\gui-pattern-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\http-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\http-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\interface-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\interface-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\larr-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\larr-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\network-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\network-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\Project-Icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\Project-Icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\rarr-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\rarr-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\rocket-45-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\rocket-45-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\softdev-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\softdev-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\solid-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\solid-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\state-machine-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\state-machine-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\uparr-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\uparr-icon.svg" />
+    <Content Include="Content\pics\mk-prg-net\icons\wissen-icon.png" />
+    <Content Include="Content\pics\mk-prg-net\icons\wissen-icon.svg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="Readme.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\TimelineRepo\0165cbd178a3582f83eb2bf6fa83095f.json" />
+    <Content Include="App_Data\TimelineRepo\083c0b78edafdbe8249831c9f3ba8b34.json" />
+    <Content Include="App_Data\TimelineRepo\08f5ee5fdff4ddc03bbaf49634a5b961.json" />
+    <Content Include="App_Data\TimelineRepo\0cc8ba58d18a8afd4887a2051c1d5af1.json" />
+    <Content Include="App_Data\TimelineRepo\103e1a3dc512003de2b16885c1476134.json" />
+    <Content Include="App_Data\TimelineRepo\11de2c21a354f94e1fe2d9b18f50c889.json" />
+    <Content Include="App_Data\TimelineRepo\168e9f2b58c14041e6d4dac3f3a90bff.json" />
+    <Content Include="App_Data\TimelineRepo\1889a40069c45c0b87e5a0a0826966f4.json" />
+    <Content Include="App_Data\TimelineRepo\1e09b40caca380f03bb764b6ddafb771.json" />
+    <Content Include="App_Data\TimelineRepo\1f3c2350bac132e67b647489f9e82447.json" />
+    <Content Include="App_Data\TimelineRepo\1fb05582f9185409652c566fdafd9b5b.json" />
+    <Content Include="App_Data\TimelineRepo\23f8b6af019829240f756dba1f70fd46.json" />
+    <Content Include="App_Data\TimelineRepo\27eef87c4a0bbdf912d730d9775a36ca.json" />
+    <Content Include="App_Data\TimelineRepo\2b2afd64ca547c802be5893439f2615e.json" />
+    <Content Include="App_Data\TimelineRepo\330feab1f3a99114894d377510d8abee.json" />
+    <Content Include="App_Data\TimelineRepo\33a686ba64b92e1bbc540d8f9c776487.json" />
+    <Content Include="App_Data\TimelineRepo\486d3455d4708486aa78f1310b76e39c.json" />
+    <Content Include="App_Data\TimelineRepo\4ab451dc6b5899ae21a6aca776d30352.json" />
+    <Content Include="App_Data\TimelineRepo\4ef9870a7088d20886f5a8c336246071.json" />
+    <Content Include="App_Data\TimelineRepo\5299270e9d221e50f8cbd9159df7649b.json" />
+    <Content Include="App_Data\TimelineRepo\535a12ea9a7ebed174a549e0048abe5c.json" />
+    <Content Include="App_Data\TimelineRepo\5add8fecbab0414b127a2e75fe21b686.json" />
+    <Content Include="App_Data\TimelineRepo\5d23831939f5699f649a52a1cd65781a.json" />
+    <Content Include="App_Data\TimelineRepo\6048f7c1dd5bc9c34a94e5374dd65661.json" />
+    <Content Include="App_Data\TimelineRepo\66db27b5885cca5249a3387aecd84da8.json" />
+    <Content Include="App_Data\TimelineRepo\6c6dd3e3d810b686e930eb768ab0d163.json" />
+    <Content Include="App_Data\TimelineRepo\6f41a38c4e1498fca9332b9f974a0e60.json" />
+    <Content Include="App_Data\TimelineRepo\705241ade4734bb585140ff2b4c658df.json" />
+    <Content Include="App_Data\TimelineRepo\7815679c367346ca0026b73d9c438bce.json" />
+    <Content Include="App_Data\TimelineRepo\7819900f09e9c6537b292454eb922282.json" />
+    <Content Include="App_Data\TimelineRepo\7dc0df3a3d3184067434e8dc221878aa.json" />
+    <Content Include="App_Data\TimelineRepo\86e6a46dda69b1afcdfbb26dbcc1a9fb.json" />
+    <Content Include="App_Data\TimelineRepo\8cfd7d5cb69755ab08965c57c7c41c63.json" />
+    <Content Include="App_Data\TimelineRepo\8e0bdcf64f82a9c548e712a6b0bc267f.json" />
+    <Content Include="App_Data\TimelineRepo\930e5c0d264c3b8f2744a9d793b6d441.json" />
+    <Content Include="App_Data\TimelineRepo\953cf8f5d8a50d0409796cc8ba4af928.json" />
+    <Content Include="App_Data\TimelineRepo\966021739a753dcdb7fc2406f6d5d6a4.json" />
+    <Content Include="App_Data\TimelineRepo\9b599b1e5bb29f884bcdc5c3a79ad73a.json" />
+    <Content Include="App_Data\TimelineRepo\a287c9894faec9958014f2415f530b6a.json" />
+    <Content Include="App_Data\TimelineRepo\a7478c88bc6c01bcbb4a0c9c1ecdf797.json" />
+    <Content Include="App_Data\TimelineRepo\aa9c8418518883d9a9208fbc56eaddc0.json" />
+    <Content Include="App_Data\TimelineRepo\ac0b73cca99ebcfdc18720b42ab9f977.json" />
+    <Content Include="App_Data\TimelineRepo\acbe842952aa617974db469976064927.json" />
+    <Content Include="App_Data\TimelineRepo\b07855f7cfdea69131f3ded90f06787c.json" />
+    <Content Include="App_Data\TimelineRepo\b320095d17e37f06ae9736cae46cdd31.json" />
+    <Content Include="App_Data\TimelineRepo\b651d7393d3ab7edc03a72c0ee323365.json" />
+    <Content Include="App_Data\TimelineRepo\bb5ce6724f6d8b28f1721c8a4a764ecf.json" />
+    <Content Include="App_Data\TimelineRepo\c91695b8143e74d5acda3a4d07c03c23.json" />
+    <Content Include="App_Data\TimelineRepo\ca79ed1b3d36664e08d606dac710bd95.json" />
+    <Content Include="App_Data\TimelineRepo\dceaa6d29b233cdb3b4c96ab4949c773.json" />
+    <Content Include="App_Data\TimelineRepo\de57193a1f4a56ea18ef9efa7b90fc0d.json" />
+    <Content Include="App_Data\TimelineRepo\e4a20446d5922146d9a1f91cd4c0da27.json" />
+    <Content Include="App_Data\TimelineRepo\e8ed6ecfd708d812737dfd0960564b48.json" />
+    <Content Include="App_Data\TimelineRepo\e9db00fd19132a9622d19db692d45fdc.json" />
+    <Content Include="App_Data\TimelineRepo\ed0cba37190c49b09a44eb705982498f.json" />
+    <Content Include="App_Data\TimelineRepo\ef82927c1b5dbb4e2f535d22dd3cffb1.json" />
+    <Content Include="App_Data\TimelineRepo\f1cabc05557e7af5645c7504db0c0528.json" />
+    <Content Include="App_Data\TimelineRepo\f3e9708177fabb63df4d42ddd411b9eb.json" />
+    <Content Include="App_Data\TimelineRepo\f578616433283e9c93334003a65f676f.json" />
+    <Content Include="App_Data\TimelineRepo\f79f8b41b57db89b82bb142735c0e082.json" />
+    <Content Include="App_Data\TimelineRepo\f8c379a42d9281550cc426664b77005b.json" />
+    <Content Include="App_Data\TimelineRepo\f97603ff5d15b4ae149d5b8a93bc18ab.json" />
+    <Content Include="App_Data\TimelineRepo\fa898d67103d315d025906409046bd1d.json" />
+    <Content Include="App_Data\TimelineRepo\fb9703341fd373335ee4436a9f25a4c3.json" />
+    <Content Include="App_Data\TimelineRepo\fc0d418cf9913e8f6b8a728f5ded68a2.json" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Appointment.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Appointment.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Location.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Location.cshtml" />
+    <Content Include="Views\Appointment\Create.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53570</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53570/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

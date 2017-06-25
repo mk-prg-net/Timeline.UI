@@ -1,0 +1,33 @@
+{
+  "BeginDate": {
+    "Day": 1,
+    "Month": 4,
+    "Year": 2027
+  },
+  "BeginTime": {
+    "Hour": 15,
+    "Minute": 0,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Category": 0,
+  "Details": "Wechsel auf Sommerreifen",
+  "EndDate": {
+    "Day": 1,
+    "Month": 4,
+    "Year": 2027
+  },
+  "EndTime": {
+    "Hour": 17,
+    "Minute": 0,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Location": {
+    "Street": "",
+    "City": "",
+    "Country": "DE",
+    "PostalCode": ""
+  },
+  "Owner": "ich"
+}

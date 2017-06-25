@@ -1,0 +1,33 @@
+﻿@model mko.Timeline.Appointment
+
+<article class="Appointment">
+
+    <section class="Start">
+        <h1>Start</h1>
+        @Html.DisplayFor(m => m.BeginDate)<br />
+        @Html.DisplayFor(m => m.BeginTime)
+    </section>
+
+    <section class="End">
+        <h1>Ende</h1>
+        @Html.DisplayFor(m => m.EndDate)<br /> 
+        @Html.DisplayFor(m => m.EndTime)
+    </section>
+    <section class="Data">
+        <h3>Kategorie</h3>
+        @Html.DisplayFor(m => m.Category);
+
+        <h3>Besitzer</h3>
+        @Html.DisplayFor(m => m.Owner)
+
+        <h3>Details</h3>
+        @Html.DisplayFor(m => m.Details)
+    </section>
+</article>
+
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+﻿/*
+    (c) Martin Korneffel, Stuttgart 2017
+    Formatieren von Termindaten
+*/
+
+article.Appointment{
+    background-color:gainsboro;
+    list-style-type: none;   
+    clear: both;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items:  center;
+    margin: 8px;
+
+}
+
+article.Appointment section.Appointment {
+        height: 300px;
+        width: 300px;
+        margin: 8px;
+        margin-left: 4px;
+        margin-right: 4px;
+        margin-bottom: 0px;
+        padding: 8px;
+        border-style: solid;
+        border-color: gainsboro;
+        border-radius: 8px;
+        /*background-color: #808080;*/
+        text-align: center;
+
+   
+}

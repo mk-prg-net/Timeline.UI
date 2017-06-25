@@ -1,0 +1,36 @@
+﻿@model Timeline.UI.Web.Models.Timeline.Appointment
+
+@{ 
+    var sel = new SelectListItem[]
+    {
+        new SelectListItem() { Selected=Model.Category == mko.Timeline.AppointmentCategory.business, Text="geschäftlich", Value=mko.Timeline.AppointmentCategory.business.ToString() },
+        new SelectListItem() { Selected=Model.Category == mko.Timeline.AppointmentCategory.@private, Text="privat", Value=mko.Timeline.AppointmentCategory.@private.ToString() },
+    };
+}
+
+<article class="Appointment">
+
+    <section class="Start">
+        <h1>Start</h1>
+        @Html.EditorFor(m => m.BeginDate)<br />
+        @Html.EditorFor(m => m.BeginTime)
+    </section>
+
+    <section class="End">
+        <h1>Ende</h1>
+        @Html.EditorFor(m => m.EndDate)<br />
+        @Html.EditorFor(m => m.EndTime)
+    </section>
+    <section class="Data">
+        <h3>Kategorie</h3>
+        @Html.DropDownListFor(m => m.Category, sel, new { @class="form-control"})
+
+        <h3>Besitzer</h3>
+        @Html.EditorFor(m => m.Owner)
+
+        <h3>Details</h3>
+        @Html.EditorFor(m => m.Details)
+    </section>
+</article>
+
+

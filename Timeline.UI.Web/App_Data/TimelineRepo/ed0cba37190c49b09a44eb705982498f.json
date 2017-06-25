@@ -1,0 +1,33 @@
+{
+  "BeginDate": {
+    "Day": 1,
+    "Month": 11,
+    "Year": 2022
+  },
+  "BeginTime": {
+    "Hour": 15,
+    "Minute": 0,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Category": 0,
+  "Details": "Wechsel auf Winterreifen",
+  "EndDate": {
+    "Day": 1,
+    "Month": 11,
+    "Year": 2022
+  },
+  "EndTime": {
+    "Hour": 17,
+    "Minute": 0,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Location": {
+    "Street": "",
+    "City": "",
+    "Country": "DE",
+    "PostalCode": ""
+  },
+  "Owner": "ich"
+}

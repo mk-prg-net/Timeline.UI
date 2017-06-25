@@ -1,0 +1,10 @@
+﻿@model mko.Timeline.IDate
+@*
+    (c)  Martin Korneffel, Stuttgart 2017
+    Darstellung eines Datums
+*@
+
+<time datetime="@Model.Year.ToString("D4")-@Model.Month.ToString("D2")-@Model.Day.ToString("D2")">
+    @Model.ToDateTime().ToLongDateString()
+</time>
+

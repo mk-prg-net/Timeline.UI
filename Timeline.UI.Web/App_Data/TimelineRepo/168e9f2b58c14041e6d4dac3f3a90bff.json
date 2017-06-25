@@ -1,0 +1,33 @@
+{
+  "BeginDate": {
+    "Day": 1,
+    "Month": 5,
+    "Year": 2025
+  },
+  "BeginTime": {
+    "Hour": 0,
+    "Minute": 0,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Category": 1,
+  "Details": "Steuererklärung abgeben",
+  "EndDate": {
+    "Day": 1,
+    "Month": 5,
+    "Year": 2025
+  },
+  "EndTime": {
+    "Hour": 23,
+    "Minute": 59,
+    "Second": 59,
+    "Millisecond": 0
+  },
+  "Location": {
+    "Street": "",
+    "City": "",
+    "Country": "DE",
+    "PostalCode": ""
+  },
+  "Owner": "ich"
+}

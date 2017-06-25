@@ -1,0 +1,14 @@
+﻿@model Timeline.UI.Web.Models.Timeline.Appointment
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Neuen Termin anlegen</h2>
+@using (Html.BeginForm(new { action = "Save" }))
+{
+    @Html.EditorFor(m => m)
+    <input type="submit" value="Sichern" class="form-control btn btn-success"/>
+}
+
+

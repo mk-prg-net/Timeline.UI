@@ -1,0 +1,62 @@
+﻿@model mko.Timeline.FS.Timeline
+@{
+    ViewBag.Title = "Index";
+
+
+    var fssbld = Model.CreateFSSBld();
+    fssbld.OrderByBegin(true);
+
+    var apps = fssbld.GetSet();
+
+}
+
+<h2>Alle Termine</h2>
+<p>
+    Aktuell gibt es @Model.Count Termine.
+</p>
+
+<a href="@Url.Action("Create")" class="btn btn-success">Neu</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Beginn</th>
+        <th>Zeit</th>
+        <th>Ende</th>
+        <th>Zeit</th>
+        <th>Besitzer</th>
+        <th>Ort</th>
+        <th>Details</th>
+        <th>Ops</th>
+
+    </tr>
+    @foreach (var app in apps.Get())
+    {
+        <tr>
+            <td>
+                @Html.Partial(@"DisplayTemplates\Date", app.BeginDate)
+            </td>
+            <td>
+                @Html.Partial(@"DisplayTemplates\Time", app.BeginTime)
+            </td>
+            <td>
+                @Html.Partial(@"DisplayTemplates\Date", app.EndDate)
+            </td>
+            <td>
+                @Html.Partial(@"DisplayTemplates\Time", app.EndTime)
+            </td>
+            <td>
+                @app.Owner
+            </td>
+            <td>
+                @Html.Partial(@"DisplayTemplates\Location", app.Location)
+            </td>
+            <td>
+                @app.Details
+            </td>
+            <td>
+                <a href="@Url.Action("Delete", new {Begin = mko.Timeline.Timeline.ToDateTime(app.BeginDate, app.BeginTime).ToString("s"), @End= mko.Timeline.Timeline.ToDateTime(app.EndDate, app.EndTime).ToString("s"), Owner = app.Owner})" class="btn btn-danger">Del</a>
+            </td>
+        </tr>
+    }
+</table>
+
