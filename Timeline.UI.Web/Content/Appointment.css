@@ -10,13 +10,81 @@ article.Appointment{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items:  center;
     margin: 8px;
 
+    border-radius: 10px;
+    border-color: gainsboro;
+
 }
 
-article.Appointment section.Appointment {
+article.Appointment section h1
+{
+    font-size: medium;
+    font-weight: bold;
+}
+
+article.Appointment section[itemprop="startDate"]
+{
+    width: 100px;
+    height: 150px;
+    text-align: center;
+}
+
+article.Appointment section[itemprop="endDate"]
+{
+    width: 100px;
+    height: 150px;
+    text-align: center;
+}
+
+article.Appointment section[itemprop="about"]
+{
+    width: 400px;
+    height: 150px;
+    text-align: center;
+}
+
+article.Appointment section[itemprop="location"]{
+    width: 300px;
+    height: 150px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+  article.Appointment section[itemprop="about"] dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  article.Appointment section[itemprop="about"] dd {
+    margin-left: 180px;
+  }
+  article.Appointment section[itemprop="about"] dd:before,
+  article.Appointment section[itemprop="about"] dd:after {
+    display: table;
+    content: " ";
+  }
+  article.Appointment section[itemprop="about"] dd:after {
+    clear: both;
+  }
+  article.Appointment section[itemprop="about"] dd:before,
+  article.Appointment section[itemprop="about"] dd:after {
+    display: table;
+    content: " ";
+  }
+  article.Appointment section[itemprop="location"] dd:after {
+    clear: both;
+  }
+}
+
+
+/*article.Appointment section.Appointment {
         height: 300px;
         width: 300px;
         margin: 8px;
@@ -27,8 +95,7 @@ article.Appointment section.Appointment {
         border-style: solid;
         border-color: gainsboro;
         border-radius: 8px;
-        /*background-color: #808080;*/
         text-align: center;
 
    
-}
+}*/

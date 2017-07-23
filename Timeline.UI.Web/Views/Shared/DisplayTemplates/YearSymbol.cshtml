@@ -1,0 +1,12 @@
+﻿@model System.Tuple<int, int>
+
+@{ 
+    var wpx = Model.Item1.ToString() + "px";
+    var hpx = Model.Item2.ToString() + "px";
+}
+
+<svg style="display: inline; width: @wpx; height: @hpx;">
+    <title>years to next appointment</title>
+    <rect fill="red" stroke="red" x="0" y="0" width="@Model.Item1" height="@Model.Item2" />
+</svg>
+

@@ -1,0 +1,14 @@
+﻿@model System.Tuple<int, int>
+@{
+    var wpx = Model.Item1.ToString() + "px";
+    var hpx = Model.Item2.ToString() + "px";
+    var cx = Model.Item1 / 2;
+    var cy = Model.Item2 / 2;
+    var r = Math.Min(Model.Item1, Model.Item2) / 2;
+}
+
+<svg style="display: inline; width: @wpx; height: @hpx;">
+    <title>month symbol</title>
+    <circle fill="red" stroke="red" cx="@cx" cy="@cy" r="@r" />
+</svg>
+

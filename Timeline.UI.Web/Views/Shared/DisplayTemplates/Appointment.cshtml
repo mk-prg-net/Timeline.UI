@@ -1,27 +1,45 @@
 ﻿@model mko.Timeline.Appointment
 
-<article class="Appointment">
+<article itemscope itemtype="http://schema.org/Event" class="Appointment">
 
-    <section class="Start">
+    <section itemprop="startDate">
         <h1>Start</h1>
-        @Html.DisplayFor(m => m.BeginDate)<br />
-        @Html.DisplayFor(m => m.BeginTime)
+        @Html.DisplayFor(m => m.BeginTime)<br />
+        @Html.DisplayFor(m => m.BeginDate)
+
     </section>
 
-    <section class="End">
+    <section itemprop="location">
+        <h1>Ort</h1>
+        @Html.DisplayFor(m => m.Location)
+    </section>
+
+    <section itemprop="about">
+        <h1>Thema</h1>
+        <dl>
+            <dt>Kategorie</dt>
+            <dd>
+                @Html.DisplayFor(m => m.Category)
+            </dd>
+
+            <dt>Besitzer</dt>
+            <dd>@Html.DisplayFor(m => m.Owner)</dd>
+
+            <dt>Details</dt>
+            <dd>
+                @Html.DisplayFor(m => m.Details)
+            </dd>
+        </dl>
+    </section>
+
+    <section itemprop="endDate">
         <h1>Ende</h1>
-        @Html.DisplayFor(m => m.EndDate)<br /> 
-        @Html.DisplayFor(m => m.EndTime)
+        @Html.DisplayFor(m => m.EndTime)<br />
+        @Html.DisplayFor(m => m.EndDate)
     </section>
-    <section class="Data">
-        <h3>Kategorie</h3>
-        @Html.DisplayFor(m => m.Category);
 
-        <h3>Besitzer</h3>
-        @Html.DisplayFor(m => m.Owner)
-
-        <h3>Details</h3>
-        @Html.DisplayFor(m => m.Details)
+    <section itemscope itemtype="http://schema.org/DeleteAction" itemprop="">
+        <a href="@Url.Action("Delete", new {Begin = mko.Timeline.Timeline.ToDateTime(Model.BeginDate, Model.BeginTime).ToString("s"), @End= mko.Timeline.Timeline.ToDateTime(Model.EndDate, Model.EndTime).ToString("s"), Owner = Model.Owner})" class="btn btn-danger">Del</a>
     </section>
 </article>
 

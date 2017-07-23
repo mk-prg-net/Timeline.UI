@@ -1,0 +1,63 @@
+﻿@model global::Timeline.UI.Web.Models.Timeline.TimelineVM
+
+@using mko.Timeline
+
+@{
+    ViewBag.Title = "IndexRel";
+
+    var apps = Model.Timeline;
+
+    mko.Timeline.IAppointment lastAppointment = null;
+    bool first = true;
+
+}
+
+<h2>Alle Termine</h2>
+<p>
+    Aktuell gibt es @Model.Count Termine.
+</p>
+<p>
+    Zwischen den Terminen wird die Zeit bis zum nächsten Termin symbolisiert durch
+    @Html.Partial("DisplayTemplates/YearSymbol", System.Tuple.Create(20, 20)) für Jahre,
+    @Html.Partial("DisplayTemplates/MonthSymbol", System.Tuple.Create(20, 20)) für Monate und
+    @Html.Partial("DisplayTemplates/DaySymbol", System.Tuple.Create(20, 20)) für Tage.
+</p>
+<div class="btn-toolbar">
+    <div class="btn-group btn-group-lg" role="group" aria-label="crud">
+        <a href="@Url.Action("Create")" class="btn btn-success">Neu</a>
+    </div>
+    <div class="btn-group btn-group-lg" role="group" aria-label="OrderBy">
+        <a href="@Url.Action("Index", new { OrderByDesc = false})" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a href="@Url.Action("Index", new { OrderByDesc = true})" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-down"></span></a>
+    </div>
+
+</div>
+
+@foreach (var app in apps.Get())
+{
+
+    if (!first)
+    {
+        var beg = DateTimeExt.Create(app.BeginDate, app.BeginTime);
+        var end = DateTimeExt.Create(lastAppointment.BeginDate, lastAppointment.BeginTime);
+
+        mko.Timeline.DateTimeExt.DateDiffNumber diff;
+        if (beg > end)
+        {
+            diff = beg.DateDiff(end);
+        }
+        else
+        {
+            diff = end.DateDiff(beg);
+        }
+
+        @Html.Partial("DisplayTemplates/DateDiffNumber", diff)
+    }
+
+    @Html.Partial("DisplayTemplates/Appointment", app)
+
+    lastAppointment = app;
+    first = false;
+}
+
+

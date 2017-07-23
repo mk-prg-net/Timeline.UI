@@ -89,8 +89,8 @@
       <HintPath>..\packages\mko.BI.3.2.6\lib\net45\mko.BI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="mko.Timeline, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\mko.Timeline.1.0.2\lib\net452\mko.Timeline.dll</HintPath>
+    <Reference Include="mko.Timeline, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.Timeline.1.0.4\lib\net452\mko.Timeline.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mko.Timeline.FS, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -235,6 +235,7 @@
     <Compile Include="Models\Timeline\Appointment.cs" />
     <Compile Include="Models\Timeline\Date.cs" />
     <Compile Include="Models\Timeline\Time.cs" />
+    <Compile Include="Models\Timeline\TimelineVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -451,6 +452,11 @@
     <Content Include="Views\Shared\EditorTemplates\Location.cshtml" />
     <Content Include="Views\Appointment\Create.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateDiffNumber.cshtml" />
+    <Content Include="Views\Appointment\IndexRel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\YearSymbol.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MonthSymbol.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DaySymbol.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Timeline.UI\Timeline.UI.csproj">

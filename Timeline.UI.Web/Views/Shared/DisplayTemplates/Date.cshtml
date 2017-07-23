@@ -5,6 +5,6 @@
 *@
 
 <time datetime="@Model.Year.ToString("D4")-@Model.Month.ToString("D2")-@Model.Day.ToString("D2")">
-    @Model.ToDateTime().ToLongDateString()
+    @Model.Day.ToString("D2").@Model.Month.ToString("D2").@Model.Year.ToString("D4")
 </time>
 

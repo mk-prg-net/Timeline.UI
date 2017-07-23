@@ -18,10 +18,14 @@ namespace Timeline.UI.Web.Controllers
         
 
         // GET: Appointment
-        public ActionResult Index()
+        public ActionResult Index(bool OrderByDesc = true)
         {
             tl = new mko.Timeline.FS.Timeline(Server.MapPath(tlPath));
-            return View(tl);
+            var fssbld = tl.CreateFSSBld();
+            fssbld.OrderByBegin(OrderByDesc);
+
+            var tlVM = new Models.Timeline.TimelineVM(tl.Count, fssbld.GetSet());
+            return View("IndexRel", tlVM);
         }
 
         public ActionResult Create()

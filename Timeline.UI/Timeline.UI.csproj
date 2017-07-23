@@ -34,6 +34,22 @@
       <HintPath>..\packages\mko.7.3.3\lib\net45\mko.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="mko.Algo, Version=1.2.2.0, Culture=neutral, PublicKeyToken=f4d93f46e53e0656, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.Algo.1.2.2\lib\net45\mko.Algo.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mko.BI, Version=3.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.BI.3.2.6\lib\net45\mko.BI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mko.Timeline, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.Timeline.1.0.4\lib\net452\mko.Timeline.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -53,6 +69,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LICENSE.txt" />
+    <Content Include="Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

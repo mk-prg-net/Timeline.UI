@@ -1,0 +1,127 @@
+﻿@model mko.Timeline.DateTimeExt.DateDiffNumber
+
+
+
+@helper MonthSymbol(int width, int height)
+{
+var wpx = width.ToString() + "px";
+var hpx = height.ToString() + "px";
+var cx = height / 2;
+var cy = height / 2;
+var r = Math.Min(width, height) / 2;
+
+
+    <svg style="display: inline; width: @wpx; height: @hpx;">
+        <title>month symbol</title>
+        <circle fill="red" stroke="red" cx="@cx" cy="@cy" r="@r" />
+    </svg>
+}
+
+
+@helper WeekSymbol(int width, int height)
+{
+var wpx = width.ToString() + "px";
+var hpx = height.ToString() + "px";
+
+    <svg style="display: inline; width: @wpx; height: @hpx;">
+        <title>week symbol</title>
+        <polygon fill="red" stroke="red" points="0, 0, 50, 0, 25, 50" />
+    </svg>
+}
+
+
+@helper DaySymbol(int width, int height)
+{
+var wpx = width.ToString() + "px";
+var hpx = height.ToString() + "px";
+
+var rw = width / 10;    
+
+    <svg style="display: inline; width: @wpx; height: @hpx;">
+        <title>day symbol</title>
+        <rect fill="red" stroke="red" x="0" y="0" width="@rw" height="@height" />
+    </svg>
+}
+
+@helper Years(int count, int dim)
+{
+if (count > 5)
+{
+        <text><span style="font-size: 18pt">@count x</span> </text> @Html.Partial("DisplayTemplates/YearSymbol", System.Tuple.Create(dim, dim))
+}
+else
+{
+    for (int i = 0; i < count; i++)
+    {
+            @Html.Partial("DisplayTemplates/YearSymbol", System.Tuple.Create(dim, dim))
+            <text>&nbsp;</text>
+    }
+}
+}
+
+@helper Months(int count, int dim)
+{
+if (count > 5)
+{
+        <text><span style="font-size: 18pt">@count x</span> </text>
+        @Html.Partial("DisplayTemplates/MonthSymbol", System.Tuple.Create(dim, dim))
+}
+else
+{
+    for (int i = 0; i < count; i++)
+    {
+            @Html.Partial("DisplayTemplates/MonthSymbol", System.Tuple.Create(dim, dim))
+            <text>&nbsp;</text>
+    }
+}
+}
+
+@helper Weeks(int count, int dim)
+{
+if (count > 5)
+{
+        <text><span style="font-size: 18pt">@count x</span> </text>
+        @WeekSymbol(dim, dim)
+}
+else
+{
+    for (int i = 0; i < count; i++)
+    {
+            @WeekSymbol(dim, dim);
+            <text>&nbsp;</text>
+    }
+}
+}
+
+@helper Days(int count, int dim)
+{
+if (count > 5)
+{
+        <text><span style="font-size: 18pt">@count x</span> </text>
+        @Html.Partial("DisplayTemplates/DaySymbol", System.Tuple.Create(dim, dim))
+}
+else
+{
+    for (int i = 0; i < count; i++)
+    {
+            @Html.Partial("DisplayTemplates/DaySymbol", System.Tuple.Create(dim, dim))
+            <text>&nbsp;</text>
+    }
+}
+}
+
+<div style="vertical-align: middle; text-align: center">
+    @Years(Model.Years, 20) &nbsp; @Months(Model.Month, 20)  &nbsp;  @Days(Model.Days, 20)
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,8 @@
 {
   "BeginDate": {
-    "Day": 1,
-    "Month": 11,
-    "Year": 2028
+    "Day": 24,
+    "Month": 7,
+    "Year": 2029
   },
   "BeginTime": {
     "Hour": 15,
@@ -10,15 +10,15 @@
     "Second": 0,
     "Millisecond": 0
   },
-  "Category": 0,
-  "Details": "Wechsel auf Winterreifen",
+  "Category": 1,
+  "Details": "detailierter Plan",
   "EndDate": {
-    "Day": 1,
-    "Month": 11,
-    "Year": 2028
+    "Day": 24,
+    "Month": 7,
+    "Year": 2029
   },
   "EndTime": {
-    "Hour": 17,
+    "Hour": 18,
     "Minute": 0,
     "Second": 0,
     "Millisecond": 0
@@ -29,5 +29,5 @@
     "Country": "DE",
     "PostalCode": ""
   },
-  "Owner": "ich"
+  "Owner": "Totalo"
 }

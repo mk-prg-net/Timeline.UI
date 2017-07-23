@@ -1,0 +1,14 @@
+﻿@model System.Tuple<int, int>
+@{ 
+    var wpx = Model.Item1.ToString() + "px";
+    var hpx = Model.Item2.ToString() + "px";
+
+    var rw = Model.Item1 / 10;
+}
+
+
+<svg style="display: inline; width: @wpx; height: @hpx;">
+    <title>day symbol</title>
+    <rect fill="red" stroke="red" x="0" y="0" width="@rw" height="@Model.Item2" />
+</svg>
+
