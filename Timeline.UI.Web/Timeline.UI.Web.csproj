@@ -89,12 +89,12 @@
       <HintPath>..\packages\mko.BI.3.2.6\lib\net45\mko.BI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="mko.Timeline, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\mko.Timeline.1.0.1\lib\net452\mko.Timeline.dll</HintPath>
+    <Reference Include="mko.Timeline, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.Timeline.1.0.2\lib\net452\mko.Timeline.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="mko.Timeline.FS, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\mko.Timeline.FS.1.0.1\lib\net452\mko.Timeline.FS.dll</HintPath>
+    <Reference Include="mko.Timeline.FS, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.Timeline.FS.1.0.2\lib\net452\mko.Timeline.FS.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
