@@ -1,0 +1,37 @@
+﻿@model Timeline.UI.Web.Models.Timeline.Time
+@*
+    (c) Martin Korneffel, Stuttgart 2017
+    Adaptiert von http://www.codeguru.com/csharp/.net/net_asp/mvc/using-display-templates-and-editor-templates-in-asp.net-mvc.htm
+*@
+
+@{
+    List<SelectListItem> secs = new List<SelectListItem>();
+    for (int i = 0; i < 60; i++)
+    {
+        secs.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString(), Selected = (i == Model.Second ? true : false) });
+    }
+
+    List<SelectListItem> mins = new List<SelectListItem>();
+    for (int i = 0; i < 60; i++)
+    {
+        mins.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString(), Selected = (i == Model.Minute ? true : false) });
+    }
+
+    List<SelectListItem> hrs = new List<SelectListItem>();
+
+
+    for (int i = 0; i < 24; i++)
+    {
+        hrs.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString(), Selected = (i == Model.Hour ? true : false) });
+    }
+}
+
+@*
+    Hier werden Fromularfelder gerendert, die im Falle eines Post an den Server gesendet werden.
+    Id und Name der Formularfelder
+*@
+<label>Stunden, Minuten, Sekunden</label>
+@Html.DropDownList("Hour", hrs, new { @class = "form-control" })
+@Html.DropDownList("Minute", mins, new { @class = "form-control" })
+@Html.DropDownList("Second", secs, new { @class = "form-control" })
+

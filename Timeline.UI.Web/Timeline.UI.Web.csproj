@@ -325,6 +325,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="LICENSE.txt" />
     <Content Include="Readme.txt" />
+    <Content Include="Scripts\Appointment\Create\DocumentReady.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -444,8 +445,8 @@
     <Content Include="Views\Shared\DisplayTemplates\Appointment.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Date.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Time.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date2.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time2.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Appointment.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Location.cshtml" />
@@ -457,6 +458,8 @@
     <Content Include="Views\Shared\DisplayTemplates\YearSymbol.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MonthSymbol.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DaySymbol.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Timeline.UI\Timeline.UI.csproj">
@@ -478,6 +481,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

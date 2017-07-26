@@ -3,84 +3,94 @@
     Formatieren von Termindaten
 */
 
-article.Appointment{
-    background-color:gainsboro;
-    list-style-type: none;   
+article.Appointment {
+    background-color: gainsboro;
+    list-style-type: none;
     clear: both;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items:  center;
+    justify-content: space-between;
+    align-items: center;
     margin: 8px;
-
     border-radius: 10px;
     border-color: gainsboro;
-
 }
 
-article.Appointment section h1
-{
-    font-size: medium;
-    font-weight: bold;
-}
+    article.Appointment section h1 {
+        font-size: medium;
+        font-weight: bold;
+    }
 
-article.Appointment section[itemprop="startDate"]
-{
-    width: 100px;
-    height: 150px;
-    text-align: center;
-}
+    article.Appointment section[itemprop="startDate"] {
+        padding: 5px;
+        width: 220px;
+        height: 150px;
+        text-align: center;
+    }
 
-article.Appointment section[itemprop="endDate"]
-{
-    width: 100px;
-    height: 150px;
-    text-align: center;
-}
+    article.Appointment section[itemprop="endDate"] {
+        padding: 5px;
+        width: 220px;
+        height: 150px;
+        text-align: center;
+    }
 
-article.Appointment section[itemprop="about"]
-{
-    width: 400px;
-    height: 150px;
-    text-align: center;
-}
+    article.Appointment section[itemprop="about"] {
+        padding: 5px;
+        width: 400px;
+        height: 150px;
+        text-align: center;
+    }
 
-article.Appointment section[itemprop="location"]{
-    width: 300px;
-    height: 150px;
-    text-align: center;
-}
+    article.Appointment section[itemprop="ops"] {
+        padding: 5px;
+        width: 70px;
+        height: 150px;
+        text-align: center;
+    }
+
+
+    article.Appointment section[itemprop="location"] {
+        width: 300px;
+        height: 150px;
+        text-align: center;
+    }
 
 @media (min-width: 768px) {
-  article.Appointment section[itemprop="about"] dt {
-    float: left;
-    width: 160px;
-    overflow: hidden;
-    clear: left;
-    text-align: right;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  article.Appointment section[itemprop="about"] dd {
-    margin-left: 180px;
-  }
-  article.Appointment section[itemprop="about"] dd:before,
-  article.Appointment section[itemprop="about"] dd:after {
-    display: table;
-    content: " ";
-  }
-  article.Appointment section[itemprop="about"] dd:after {
-    clear: both;
-  }
-  article.Appointment section[itemprop="about"] dd:before,
-  article.Appointment section[itemprop="about"] dd:after {
-    display: table;
-    content: " ";
-  }
-  article.Appointment section[itemprop="location"] dd:after {
-    clear: both;
-  }
+    article.Appointment section[itemprop="about"] dt {
+        float: left;
+        width: 160px;
+        overflow: hidden;
+        clear: left;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    article.Appointment section[itemprop="about"] dd {
+        margin-left: 180px;
+    }
+
+        article.Appointment section[itemprop="about"] dd:before,
+        article.Appointment section[itemprop="about"] dd:after {
+            display: table;
+            content: " ";
+        }
+
+        article.Appointment section[itemprop="about"] dd:after {
+            clear: both;
+        }
+
+        article.Appointment section[itemprop="about"] dd:before,
+        article.Appointment section[itemprop="about"] dd:after {
+            display: table;
+            content: " ";
+        }
+
+    article.Appointment section[itemprop="location"] dd:after {
+        clear: both;
+    }
 }
 
 

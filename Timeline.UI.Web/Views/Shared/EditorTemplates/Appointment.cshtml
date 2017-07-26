@@ -1,6 +1,6 @@
 ﻿@model Timeline.UI.Web.Models.Timeline.Appointment
 
-@{ 
+@{
     var sel = new SelectListItem[]
     {
         new SelectListItem() { Selected=Model.Category == mko.Timeline.AppointmentCategory.business, Text="geschäftlich", Value=mko.Timeline.AppointmentCategory.business.ToString() },
@@ -8,29 +8,48 @@
     };
 }
 
-<article class="Appointment">
-
-    <section class="Start">
+<article itemscope itemtype="http://schema.org/Event" class="Appointment">
+    <section itemprop="startDate">
         <h1>Start</h1>
-        @Html.EditorFor(m => m.BeginDate)<br />
-        @Html.EditorFor(m => m.BeginTime)
+        <div class="input-group">
+            <span class="input-group-addon">D</span>
+            @Html.EditorFor(m => m.BeginDate)
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">T</span>
+            @Html.EditorFor(m => m.BeginTime)
+        </div>
     </section>
 
-    <section class="End">
+
+    <section itemprop="about">
+        <div class="input-group">
+            <span class="input-group-addon">Kategorie</span>
+            @Html.DropDownListFor(m => m.Category, sel, new { @class = "form-control" })
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Besitzer</span>
+            @Html.EditorFor(m => m.Owner)
+        </div>
+        <div>
+            <span class="input-group-addon">Details</span>
+            @Html.TextAreaFor(m => m.Details, new { @class = "form-control" })
+        </div>
+            
+    </section>
+
+    <section itemprop="endDate">
         <h1>Ende</h1>
-        @Html.EditorFor(m => m.EndDate)<br />
-        @Html.EditorFor(m => m.EndTime)
+        <div class="input-group">
+            <span class="input-group-addon">D</span>
+            @Html.EditorFor(m => m.EndDate)
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">T</span>
+            @Html.EditorFor(m => m.EndTime)
+        </div>
     </section>
-    <section class="Data">
-        <h3>Kategorie</h3>
-        @Html.DropDownListFor(m => m.Category, sel, new { @class="form-control"})
 
-        <h3>Besitzer</h3>
-        @Html.EditorFor(m => m.Owner)
-
-        <h3>Details</h3>
-        @Html.EditorFor(m => m.Details)
-    </section>
 </article>
 
 

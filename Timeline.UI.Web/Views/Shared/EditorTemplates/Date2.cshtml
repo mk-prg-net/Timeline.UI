@@ -1,0 +1,41 @@
+﻿@model Timeline.UI.Web.Models.Timeline.Date
+@*
+    (c) Martin Korneffel, Stuttgart 2017
+    Adaptiert von http://www.codeguru.com/csharp/.net/net_asp/mvc/using-display-templates-and-editor-templates-in-asp.net-mvc.htm
+*@
+
+@{
+    List<SelectListItem> days = new List<SelectListItem>();
+    for (int i = 1; i <= 31; i++)
+    {
+        days.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString(), Selected = (i == Model.Day ? true : false) });
+    }
+
+    List<SelectListItem> months = new List<SelectListItem>();
+    for (int i = 1; i <= 12; i++)
+    {
+        months.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString(), Selected = (i == Model.Month ? true : false) });
+    }
+
+    List<SelectListItem> years = new List<SelectListItem>();
+
+    int prevYearCount = 20;
+    int nextYearCount = 20;
+
+    for (int i = Model.Year - prevYearCount; i <= Model.Year + nextYearCount; i++)
+    {
+        years.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString(), Selected = (i == Model.Year ? true : false) });
+    }
+}
+
+@*
+    Hier werden Fromularfelder gerendert, die im Falle eines Post an den Server gesendet werden.
+    Id und Name der Formularfelder
+*@
+
+<div class="form-group">
+    <label>Tag, Monat, Jahr</label>
+    @Html.DropDownList("Day", days, new { @class = "form-control" })
+    @Html.DropDownList("Month", months, new { @class = "form-control" })
+    @Html.DropDownList("Year", years, new { @class = "form-control" })
+</div>

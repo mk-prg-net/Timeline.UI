@@ -9,10 +9,10 @@
 
     </section>
 
-    <section itemprop="location">
+    @*<section itemprop="location">
         <h1>Ort</h1>
         @Html.DisplayFor(m => m.Location)
-    </section>
+    </section>*@
 
     <section itemprop="about">
         <h1>Thema</h1>
@@ -38,7 +38,7 @@
         @Html.DisplayFor(m => m.EndDate)
     </section>
 
-    <section itemscope itemtype="http://schema.org/DeleteAction" itemprop="">
+    <section itemprop="ops">
         <a href="@Url.Action("Delete", new {Begin = mko.Timeline.Timeline.ToDateTime(Model.BeginDate, Model.BeginTime).ToString("s"), @End= mko.Timeline.Timeline.ToDateTime(Model.EndDate, Model.EndTime).ToString("s"), Owner = Model.Owner})" class="btn btn-danger">Del</a>
     </section>
 </article>
