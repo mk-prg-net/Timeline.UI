@@ -8,19 +8,25 @@ namespace Timeline.UI.Web.Controllers
 {
     public class AppointmentController : Controller
     {
-
-        const string tlPath = @"~/App_Data/TimelineRepo";
+        /// <summary>
+        /// Referenz auf injeziertes Timeline- Repository
+        /// </summary>
         mko.Timeline.ITimeline tl;
 
-        public AppointmentController()
-        {            
+        /// <summary>
+        /// Das Timeline- Repository wird via Dependenc- Injection
+        /// über die Parameterliste injeziert. Siehe App_Start\UnityConfig.cs
+        /// </summary>
+        /// <param name="timeline"></param>
+        public AppointmentController(mko.Timeline.ITimeline timeline)
+        {
+            tl = timeline;
         }
-        
+
 
         // GET: Appointment
         public ActionResult Index(bool OrderByDesc = true)
         {
-            tl = new mko.Timeline.FS.Timeline(Server.MapPath(tlPath));
             var fssbld = tl.CreateFSSBld();
             fssbld.OrderByBegin(OrderByDesc);
 
@@ -35,7 +41,7 @@ namespace Timeline.UI.Web.Controllers
 
         public ActionResult Save(Models.Timeline.Appointment app)
         {
-            tl = new mko.Timeline.FS.Timeline(Server.MapPath(tlPath));
+            //tl = new mko.Timeline.FS.Timeline(Server.MapPath(tlPath));
 
             if (ModelState.IsValid)
             {
@@ -69,7 +75,7 @@ namespace Timeline.UI.Web.Controllers
             string Begin,            
             string End)
         {
-            tl = new mko.Timeline.FS.Timeline(Server.MapPath(tlPath));
+            //tl = new mko.Timeline.FS.Timeline(Server.MapPath(tlPath));
 
             var Beg =  DateTime.Parse(Begin);
             var _End = DateTime.Parse(End);

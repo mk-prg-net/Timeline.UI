@@ -39,16 +39,12 @@
       <HintPath>..\packages\mko.7.3.3\lib\net45\mko.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="mko.Algo, Version=1.2.2.0, Culture=neutral, PublicKeyToken=f4d93f46e53e0656, processorArchitecture=MSIL">
-      <HintPath>..\packages\mko.Algo.1.2.2\lib\net45\mko.Algo.dll</HintPath>
+    <Reference Include="mko.Algo, Version=1.2.3.0, Culture=neutral, PublicKeyToken=f4d93f46e53e0656, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.Algo.1.2.3\lib\net45\mko.Algo.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="mko.BI, Version=3.2.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\mko.BI.3.2.6\lib\net45\mko.BI.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="mko.Timeline, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\mko.Timeline.1.0.4\lib\net452\mko.Timeline.dll</HintPath>
+    <Reference Include="mko.BI, Version=3.2.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mko.BI.3.2.7\lib\net45\mko.BI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -78,6 +74,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\mko.Timeline\mko.Timeline.csproj">
+      <Project>{456cc3d7-8cf3-4f03-bcc9-beeda9883457}</Project>
+      <Name>mko.Timeline</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Timeline.UI\Timeline.UI.csproj">
       <Project>{78b816f8-a583-44fe-a353-919740d33011}</Project>
       <Name>Timeline.UI</Name>

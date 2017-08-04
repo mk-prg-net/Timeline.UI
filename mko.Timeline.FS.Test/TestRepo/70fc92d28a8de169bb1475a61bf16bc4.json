@@ -1,0 +1,33 @@
+{
+  "BeginDate": {
+    "Day": 31,
+    "Month": 12,
+    "Year": 2017
+  },
+  "BeginTime": {
+    "Hour": 20,
+    "Minute": 0,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Category": 0,
+  "Details": "Party !!",
+  "EndDate": {
+    "Day": 1,
+    "Month": 1,
+    "Year": 2018
+  },
+  "EndTime": {
+    "Hour": 6,
+    "Minute": 0,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Location": {
+    "Street": "",
+    "City": "",
+    "Country": "DE",
+    "PostalCode": ""
+  },
+  "Owner": "du"
+}

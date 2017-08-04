@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>$title$</title>
+		<authors>$author$</authors>
+		<owners>$author$</owners>
+		<licenseUrl>http://www.mkoit.de/woc.aspx?path=Wissen.beispielsoftware.lizenz_beispielsoftware</licenseUrl>
+		<projectUrl>http://www.mkoit.de/woc.aspx?path=Wissen.beispielsoftware.mko_newton</projectUrl>
+		<iconUrl>http://www.mkoit.de/mko-Logo-2-1.gif</iconUrl>
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<description>$description$</description>
+		<releaseNotes></releaseNotes>
+		<copyright>Copyright Martin Korneffel, Stuttgart 2017</copyright>
+		<tags>Terminkalender, der durch ein Repository über Appointments dargestellt wird</tags>
+		<dependencies>
+      <dependency id="mko.BI" version="3.2.6"/>
+    </dependencies>
+	</metadata>
+</package>

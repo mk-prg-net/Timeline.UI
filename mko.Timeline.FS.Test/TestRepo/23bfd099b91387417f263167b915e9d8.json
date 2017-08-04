@@ -1,0 +1,33 @@
+{
+  "BeginDate": {
+    "Day": 15,
+    "Month": 5,
+    "Year": 2017
+  },
+  "BeginTime": {
+    "Hour": 9,
+    "Minute": 0,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Category": 1,
+  "Details": "mvc kurs",
+  "EndDate": {
+    "Day": 15,
+    "Month": 5,
+    "Year": 2017
+  },
+  "EndTime": {
+    "Hour": 17,
+    "Minute": 0,
+    "Second": 0,
+    "Millisecond": 0
+  },
+  "Location": {
+    "Street": "",
+    "City": "",
+    "Country": "DE",
+    "PostalCode": ""
+  },
+  "Owner": "ich"
+}
