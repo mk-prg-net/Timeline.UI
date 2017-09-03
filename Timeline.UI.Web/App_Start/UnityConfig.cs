@@ -39,11 +39,11 @@ namespace Timeline.UI.Web.App_Start
             // container.RegisterType<IProductRepository, ProductRepository>();
 
             // Registrieren einer Testattrappe für das Timeline- Repository
-            container.RegisterType<mko.Timeline.ITimeline, mko.Timeline.Timeline>(new ContainerControlledLifetimeManager());
+            //container.RegisterType<mko.Timeline.ITimeline, mko.Timeline.Timeline>(new ContainerControlledLifetimeManager());
 
             // Registrieren einer Implementierung von Timeline- Repository auf Basis von JSon- Dateien im App_Data- Verzeichnis
-            //string appDataPath = System.Web.HttpRuntime.AppDomainAppPath + @"App_Data\TimelineRepo";
-            //container.RegisterType<mko.Timeline.ITimeline, mko.Timeline.FS.Timeline>(new ContainerControlledLifetimeManager(), new InjectionConstructor(appDataPath));
+            string appDataPath = System.Web.HttpRuntime.AppDomainAppPath + @"App_Data\TimelineRepo";
+            container.RegisterType<mko.Timeline.ITimeline, mko.Timeline.FS.Timeline>(new ContainerControlledLifetimeManager(), new InjectionConstructor(appDataPath));
 
             // Registrieren einer Implementierung von Timeline- Repository auf Basis von Web- API
 
