@@ -60,26 +60,26 @@ namespace mko.Timeline.DocStore
         /// <summary>
         /// Listet alle Dokument- Id's auf
         /// </summary>
-        internal static HashSet<string> Ids;
+        internal HashSet<string> Ids;
 
         /// <summary>
         /// Zu einem Datum werden alle TerminIds aufgelistet, die an diesem beginnen
         /// </summary>
-        internal static SortedList<DateTime, string[]> BeginsSorted;
+        internal SortedList<DateTime, string[]> BeginsSorted;
 
         /// <summary>
         /// Zu einem Datum werden alle TerminIds aufgelistet, die an diesem enden
         /// </summary>
-        internal static SortedList<DateTime, string[]> EndsSorted;
+        internal SortedList<DateTime, string[]> EndsSorted;
 
         /// <summary>
         /// Zu einem Besitzer werden alle TerminIds aufgelistet, die an diesem zugeordnet sind
         /// </summary>
-        internal static SortedList<string, string[]> OwnersSorted;
+        internal SortedList<string, string[]> OwnersSorted;
 
-        internal static SortedList<AppointmentCategory, string[]> CategoriesSorted;
+        internal SortedList<AppointmentCategory, string[]> CategoriesSorted;
 
-        private static object lockHandle = new Object();
+        private  object lockHandle = new Object();
 
 
         /// <summary>
@@ -332,7 +332,7 @@ namespace mko.Timeline.DocStore
         /// <returns></returns>
         public QueryBuilder CreateQueryBuilder()
         {
-            return new QueryBuilder();
+            return new QueryBuilder(this);
         }
 
         public async Task SaveChangesAsync()

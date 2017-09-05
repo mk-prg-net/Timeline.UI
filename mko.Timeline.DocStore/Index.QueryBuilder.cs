@@ -46,17 +46,19 @@ namespace mko.Timeline.DocStore
 {
     public class QueryBuilder : MkPrgNet.Pattern.Repository.IQueryBuilder<string, SortOrderBuilder>
     {
+        Index ix;
         HashSet<string> Ids;
 
-        public QueryBuilder()
+        public QueryBuilder(Index ix)
         {
+            this.ix = ix;
             // Kopieren der Ids. Zu Beginn wird die gesammte Menge an Terminen dargestellt
-            Ids = new HashSet<string>(Index.Ids);
+            Ids = new HashSet<string>(ix.Ids);
         }
 
         public SortOrderBuilder GetSortOrderBuilder()
         {
-            return new SortOrderBuilder(Ids);
+            return new SortOrderBuilder(ix, Ids);
         }
 
         /// <summary>
@@ -66,9 +68,9 @@ namespace mko.Timeline.DocStore
         {
             set
             {
-                if (Index.OwnersSorted.ContainsKey(value))
+                if (ix.OwnersSorted.ContainsKey(value))
                 {
-                    Ids.IntersectWith(Index.OwnersSorted[value]);
+                    Ids.IntersectWith(ix.OwnersSorted[value]);
                 }
             }
         }
@@ -80,9 +82,9 @@ namespace mko.Timeline.DocStore
         {
             set
             {
-                if (Index.CategoriesSorted.ContainsKey(value))
+                if (ix.CategoriesSorted.ContainsKey(value))
                 {
-                    Ids.IntersectWith(Index.CategoriesSorted[value]);
+                    Ids.IntersectWith(ix.CategoriesSorted[value]);
                 }
             }
         }
@@ -95,13 +97,13 @@ namespace mko.Timeline.DocStore
             set
             {
                 var allbeg = Lisp.L<string>();
-                foreach(var arr in Index.BeginsSorted.Where(kv => kv.Key >= value.Begin && kv.Key < value.End).Select(kv => kv.Value))
+                foreach(var arr in ix.BeginsSorted.Where(kv => kv.Key >= value.Begin && kv.Key < value.End).Select(kv => kv.Value))
                 {
                     allbeg = allbeg.Concat(arr);
                 }
 
                 var allend = Lisp.L<string>();
-                foreach (var arr in Index.EndsSorted.Where(kv => kv.Key >= value.Begin && kv.Key < value.End).Select(kv => kv.Value))
+                foreach (var arr in ix.EndsSorted.Where(kv => kv.Key >= value.Begin && kv.Key < value.End).Select(kv => kv.Value))
                 {
                     allend = allend.Concat(arr);
                 }

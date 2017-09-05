@@ -49,13 +49,16 @@ namespace mko.Timeline.DocStore
     /// </summary>
     public class SortOrderBuilder : MkPrgNet.Pattern.Repository.ISortOrderBuilder<string>
     {
+        Index ix;
+
         Queue<HashSet<string>> IdSetsQueue = new Queue<HashSet<string>>();
         HashSet<string> Stop = new HashSet<string>();
 
         int DocIdCount = 0;
 
-        internal SortOrderBuilder(System.Collections.Generic.HashSet<string> Ids)
+        internal SortOrderBuilder(Index ix, System.Collections.Generic.HashSet<string> Ids)
         {
+            this.ix = ix;
             DocIdCount = Ids.Count;
             IdSetsQueue.Enqueue(Ids);
             IdSetsQueue.Enqueue(Stop);
@@ -67,7 +70,7 @@ namespace mko.Timeline.DocStore
         /// <param name="desc"></param>
         public void OrderByOwner(bool desc)
         {
-            var CategoriesSorted = desc ? Index.OwnersSorted.Reverse() : Index.OwnersSorted;
+            var CategoriesSorted = desc ? ix.OwnersSorted.Reverse() : ix.OwnersSorted;
             SplitInSubcategories(CategoriesSorted);
         }
 
@@ -109,7 +112,7 @@ namespace mko.Timeline.DocStore
         /// <param name="desc"></param>
         public void OrderByBegin(bool desc)
         {
-            var CategoriesSorted = desc ? Index.BeginsSorted.Reverse() : Index.BeginsSorted;
+            var CategoriesSorted = desc ? ix.BeginsSorted.Reverse() : ix.BeginsSorted;
             SplitInSubcategories(CategoriesSorted);
         }
 
@@ -119,7 +122,7 @@ namespace mko.Timeline.DocStore
         /// <param name="desc"></param>
         public void OrderByEnd(bool desc)
         {
-            var CategoriesSorted = desc ? Index.EndsSorted.Reverse() : Index.EndsSorted;
+            var CategoriesSorted = desc ? ix.EndsSorted.Reverse() : ix.EndsSorted;
             SplitInSubcategories(CategoriesSorted);
         }
 
@@ -129,7 +132,7 @@ namespace mko.Timeline.DocStore
         /// <param name="desc"></param>
         public void OrderByCategory(bool desc)
         {
-            var CategoriesSorted = desc ? Index.CategoriesSorted.Reverse() : Index.CategoriesSorted;
+            var CategoriesSorted = desc ? ix.CategoriesSorted.Reverse() : ix.CategoriesSorted;
             SplitInSubcategories(CategoriesSorted);
         }
 
