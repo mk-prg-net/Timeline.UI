@@ -46,7 +46,7 @@ using System.Diagnostics;
 
 namespace mko.Timeline.DocStore
 {
-    public class Index : mko.DocStore.IDocIndex<IAppointment>
+    public class Index : mko.DocStore.IDocIndex<IAppointment, QueryBuilder, SortOrderBuilder>
     {
         readonly string _IndexStorePath;
 
