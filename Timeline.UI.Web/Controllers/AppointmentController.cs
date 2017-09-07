@@ -31,7 +31,7 @@ namespace Timeline.UI.Web.Controllers
             fssbld.OrderByBegin(OrderByDesc);
 
             var tlVM = new Models.Timeline.TimelineVM(tl.Count, fssbld.GetSet());
-            return View("IndexRel", tlVM);
+            return View("IndexRelTiles", tlVM);
         }
 
         public ActionResult Create()
@@ -71,7 +71,7 @@ namespace Timeline.UI.Web.Controllers
             }
         }
 
-        public ActionResult Delete(string Owner,
+        public RedirectResult Delete(string Owner,
             string Begin,            
             string End)
         {

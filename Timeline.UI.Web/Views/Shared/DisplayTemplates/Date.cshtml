@@ -5,6 +5,12 @@
 *@
 
 <time datetime="@Model.Year.ToString("D4")-@Model.Month.ToString("D2")-@Model.Day.ToString("D2")">
-    @Model.Day.ToString("D2").@Model.Month.ToString("D2").@Model.Year.ToString("D4")
+    <span class="DatePartDay">@Model.Day.ToString("D2")</span> &nbsp;
+    <span class="DatePartMonth">
+        @System.Threading.Thread.CurrentThread.CurrentUICulture.DateTimeFormat.AbbreviatedMonthNames[Model.Month-1]
+    </span> &nbsp;
+    <span class="DatePartYear">
+        @Model.Year.ToString("D4")
+    </span>
 </time>
 

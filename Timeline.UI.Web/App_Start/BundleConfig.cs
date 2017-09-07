@@ -28,7 +28,7 @@ namespace Timeline.UI.Web
                       "~/Content/mk-prg-net.glyphs.css",
                       "~/Content/mk-prg-net.tree.css",
                       "~/Content/mk-prg-net.lists.css",
-                      "~/Content/Appointment.css",
+                      //"~/Content/Appointment.css",
 
                       "~/Content/site.css"));
         }
