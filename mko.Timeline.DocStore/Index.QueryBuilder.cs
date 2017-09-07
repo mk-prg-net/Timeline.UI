@@ -113,8 +113,5 @@ namespace mko.Timeline.DocStore
                 Ids.IntersectWith(flt);
             }
         }
-
-
-
     }
 }

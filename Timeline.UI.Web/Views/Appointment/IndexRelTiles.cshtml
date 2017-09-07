@@ -30,36 +30,39 @@
         <a href="@Url.Action("Index", new { OrderByDesc = false})" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-up"></span></a>
         <a href="@Url.Action("Index", new { OrderByDesc = true})" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-down"></span></a>
     </div>
+</div>
+
+<div role="presentation" class="TileContainer">
+
+    @foreach (var app in apps.Get())
+    {
+
+        if (!first)
+        {
+            var beg = DateTimeExt.Create(app.BeginDate, app.BeginTime);
+            var end = DateTimeExt.Create(lastAppointment.BeginDate, lastAppointment.BeginTime);
+
+            mko.Timeline.DateTimeExt.DateDiffNumber diff;
+            if (beg > end)
+            {
+                diff = beg.DateDiff(end);
+            }
+            else
+            {
+                diff = end.DateDiff(beg);
+            }
+
+            @Html.Partial("DisplayTemplates/DateDiffNumberTile", diff)
+        }
+
+        @Html.Partial("DisplayTemplates/AppointmentTile", app)
+
+        lastAppointment = app;
+        first = false;
+    }
 
 </div>
 
-@foreach (var app in apps.Get())
-{
-
-    if (!first)
-    {
-        var beg = DateTimeExt.Create(app.BeginDate, app.BeginTime);
-        var end = DateTimeExt.Create(lastAppointment.BeginDate, lastAppointment.BeginTime);
-
-        mko.Timeline.DateTimeExt.DateDiffNumber diff;
-        if (beg > end)
-        {
-            diff = beg.DateDiff(end);
-        }
-        else
-        {
-            diff = end.DateDiff(beg);
-        }
-
-        @Html.Partial("DisplayTemplates/DateDiffNumber", diff)
-    }
-
-    @Html.Partial("DisplayTemplates/Appointment", app)
-
-    lastAppointment = app;
-    first = false;
-}
-
 @section MyStyles {
-    <link rel="stylesheet" href="~/Content/Appointment.css" />
+    <link rel="stylesheet" href="~/Content/AppointmentTile.css" />
 }

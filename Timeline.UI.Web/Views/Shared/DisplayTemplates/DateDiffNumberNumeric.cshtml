@@ -1,0 +1,13 @@
+﻿@model mko.Timeline.DateTimeExt.DateDiffNumber
+
+<span class="DurationDays">&larr;</span>
+
+@if(Model.Days > 0)
+{
+    <span class="DurationDays">@Model.Days d</span>
+}
+
+<span class="DurationHours">@Model.Hours h</span>:
+<span class="DurationMinutes">@Model.Minutes</span>
+
+<span class="DurationDays">&rarr;</span>

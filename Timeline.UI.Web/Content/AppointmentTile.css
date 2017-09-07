@@ -1,0 +1,106 @@
+﻿/*
+    (c) Martin Korneffel, Stuttgart 2017
+    Formatieren von Termindaten als Kacheln
+*/
+
+.TileContainer {
+    list-style-type: none;
+    clear: both;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+article[class="AppointmentTile"] div.row {
+    list-style-type: none;
+    clear: both;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+article.AppointmentTile {
+    background-color: gainsboro;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: gainsboro;
+    height: 300px;
+    width: 400px;
+    margin: 8px;
+    /*margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 0px;*/
+    /*padding: 8px;*/
+    text-align: center;
+}
+
+.DateDiff {
+    width: 100px;
+    vertical-align: middle; 
+    text-align: center;
+}
+
+
+article.AppointmentTile section h1 {
+    font-size: medium;
+    font-weight: bold;
+}
+
+article.AppointmentTile section[itemprop="startDate"] {
+    padding: 5px;    
+    text-align: center;
+}
+
+article.AppointmentTile section[itemprop="endDate"] {
+    padding: 5px;
+    text-align: center;
+}
+
+article.AppointmentTile section[itemprop="about"] {
+    padding: 5px;
+    height: 70px;   
+    text-align: center;
+}
+
+article.AppointmentTile section[itemprop="ops"] {
+    padding: 5px;
+    width: 70px;
+    text-align: left;
+}
+
+
+article.AppointmentTile section[itemprop="location"] {
+    text-align: center;
+}
+
+
+@media (min-width: 768px) {
+}
+
+.DatePartDay {
+    font-size: x-large;
+}
+
+.DatePartMonth {
+    font-size: medium;
+}
+
+.DatePartYear {
+    font-size: x-large;
+}
+
+.DurationDays {
+    font-size: x-large;
+}
+
+.DurationHours {
+    font-size: x-large;
+}
+
+.DurationMinutes {
+    font-size: x-large;
+}

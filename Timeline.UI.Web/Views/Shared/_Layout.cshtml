@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - ASP.NET Demo Application</title>
     @Styles.Render("~/Content/css")
+    @RenderSection("MyStyles", required: false)
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -29,7 +30,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container-fluid body-content" style="margin-left:10px; margin-right: 10px">
         @RenderBody()
         <hr />
         <footer>

@@ -263,6 +263,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AppointmentTile.css" />
     <Content Include="Content\Appointment.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -478,6 +479,10 @@
     <Content Include="Views\Shared\DisplayTemplates\DaySymbol.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Appointment\IndexRelTiles.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AppointmentTile.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateDiffNumberTile.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateDiffNumberNumeric.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\mko.Timeline.FS\mko.Timeline.FS.csproj">

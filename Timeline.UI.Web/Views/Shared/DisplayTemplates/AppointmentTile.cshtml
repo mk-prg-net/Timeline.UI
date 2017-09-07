@@ -1,0 +1,78 @@
+﻿@model mko.Timeline.Appointment
+
+@using mko.Timeline;
+
+<article itemscope itemtype="http://schema.org/Event" class="AppointmentTile">
+
+    <div role="presentation" class="row">
+
+        <section itemprop="attendee">
+            @Html.DisplayFor(m => m.Owner)
+        </section>
+
+        <section itemprop="startDate">
+            @Html.DisplayFor(m => m.BeginDate)
+
+            @if (!Model.BeginDate.Equ(Model.EndDate))
+            {
+                <span class="DateSeparator">-</span>
+                @Html.DisplayFor(m => m.EndDate)
+            }
+        </section>
+
+        <section itemprop="category">
+            @Html.DisplayFor(m => m.Category)
+        </section>
+
+    </div>
+
+    <div role="presentation" style="background-color: ghostwhite">
+
+        <div role="presentation" class="row">
+
+            <section itemprop="startDate">
+                <h1>Start</h1>
+                @Html.DisplayFor(m => m.BeginTime)<br />
+
+            </section>
+
+            <section itemprop="duration">
+
+                @{
+                var beg = mko.Timeline.DateTimeExt.Create(Model.BeginDate, Model.BeginTime);
+                var end = mko.Timeline.DateTimeExt.Create(Model.EndDate, Model.EndTime);
+
+                var diff = end.DateDiff(beg);
+
+                    @Html.Partial("DisplayTemplates/DateDiffNumberNumeric", diff)
+
+
+                }
+
+            </section>
+
+            <section itemprop="endDate">
+                <h1>Ende</h1>
+                @Html.DisplayFor(m => m.EndTime)<br />
+            </section>
+
+        </div>
+        <div role="presentation" class="row">
+
+            <section itemprop="about">
+                @Html.DisplayFor(m => m.Details)
+            </section>
+        </div>
+
+    </div>
+
+    <div role="presentation" class="row">
+        <section itemprop="ops">
+            <a href="@Url.Action("Delete", new {Begin = mko.Timeline.Timeline.ToDateTime(Model.BeginDate, Model.BeginTime).ToString("s"), @End= mko.Timeline.Timeline.ToDateTime(Model.EndDate, Model.EndTime).ToString("s"), Owner = Model.Owner})" class="btn btn-danger">Del</a>
+        </section>
+    </div>
+</article>
+
+
+
+
